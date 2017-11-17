@@ -1,0 +1,8 @@
+web:
+  build: .
+  ports:
+    - "8000:8000"
+  environment:
+    WORKERS: 2
+  volumes:
+    - ./content:/app/content
