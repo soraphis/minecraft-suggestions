@@ -2,90 +2,98 @@
 <html>
 <title>Soraphis' Minecraft Suggestions</title>
 <meta charset="utf-8"/>
-<link href="bootstrap.min.css" rel="stylesheet">
+<link href="bootstrap.min.css" rel="stylesheet"> 
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js" integrity="sha256-/GKyJ0BQJD8c8UYgf7ziBrs/QgcikS7Fv/SaArgBcEI=" crossorigin="anonymous"></script>
+
 <style>
+  /*
     h2:before {
-    content: "• ";
-    display: inline-block;
-    position: relative;
-    right: 1.3rem;
-    top: -2px;
-    width: 0;
+      content: "• ";
+      display: inline-block;
+      position: relative;
+      right: 1.3rem;
+      top: -2px;
+      width: 0;
     }
-    
-    .my_footer{
-        width: 100%; text-align: center; margin-top: 3em;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .my_footer a{
-        margin-left: 1em;
-        margin-right: 1em;
-    }
-
-    .spinner {
-  margin: 100px auto;
-  width: 50px;
-  height: 40px;
-  text-align: center;
-  font-size: 10px;
-}
-
-.spinner > div {
-  background-color: #333;
-  height: 100%;
-  width: 6px;
-  display: inline-block;
-  
-  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-  animation: sk-stretchdelay 1.2s infinite ease-in-out;
-}
-
-#loader{
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-}
-
-.spinner .rect2 {
-  -webkit-animation-delay: -1.1s;
-  animation-delay: -1.1s;
-}
-
-.spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
-}
-
-.spinner .rect4 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
-
-.spinner .rect5 {
-  -webkit-animation-delay: -0.8s;
-  animation-delay: -0.8s;
-}
-
-@-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
-  20% { -webkit-transform: scaleY(1.0) }
-}
-
-@keyframes sk-stretchdelay {
-  0%, 40%, 100% { 
-    transform: scaleY(0.4);
-    -webkit-transform: scaleY(0.4);
-  }  20% { 
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
+  */
+  .my_footer{
+    width: 100%; text-align: center; margin-top: 3em;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
   }
-}
+
+  .my_footer a{
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .spinner {
+    margin: 100px auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .spinner > div {
+    background-color: #333;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  }
+
+  #loader{
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+  }
+
+  .spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+  }
+
+  .spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+
+  .spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+  }
+
+  .spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+  }
+
+  @-webkit-keyframes sk-stretchdelay {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+    20% { -webkit-transform: scaleY(1.0) }
+  }
+
+  @keyframes sk-stretchdelay {
+    0%, 40%, 100% { 
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
+    }  20% { 
+      transform: scaleY(1.0);
+      -webkit-transform: scaleY(1.0);
+    }
+  }
+
+  b, strong{
+   font-weight: bold;
+   color: #666;
+  }
 </style>
 
-<xmp theme="" style="display:none;">
+<xmp theme="simplex" style="display:none;">
     # Markdown text goes in here
 
     ## Chapter 1
@@ -102,9 +110,8 @@
 </xmp>
 
 <script>
-	let b = true;
 	let hash = escape(window.location.hash.substr(1));
-    if(hash === "") hash = "orelibrary"
+    if(hash === "") hash = "general_suggestions"
 
 	//window.location.hash = "";
 	window.onhashchange = () => {
@@ -125,8 +132,11 @@
         document.querySelector("head title").textContent += ": " + hash;
         
         let s = document.createElement("script");
-        s.setAttribute("src", "strapdown.js");
+        s.setAttribute("src", "strapdown.js"); 
+        // https://cdn.rawgit.com/Naereen/StrapDown.js/master/strapdown.min.js
         document.querySelector("body").append(s);
+
+        // document.querySelector("body").removeChild(document.querySelector("body").firstChild);       
     });
   
 </script>
@@ -143,10 +153,40 @@
 </div>
 
 <div class="my_footer">
+  <!--
     <a href="#orelibrary">Ore Library</a>
     <a href="#colorizer">Colorizer</a>
     <a href="#village">Village</a>
     <a href="#c1">S' Modpack Idea</a>
+	<a href="#general_suggestions">General</a>
+-->
 </div>
+<script>
+
+  let footer = document.querySelector(".my_footer");
+  fetch("content/").then((response) => response.text()).then(
+    (text) => {
+      let parser = new DOMParser();
+      let doc = parser.parseFromString(text, "text/html");
+      let list = doc.querySelector("ul");
+      for(let i = 0; i < list.children.length; ++i){
+          let li = list.children[i];
+          console.log(i, li);
+          let a = li.querySelector("a[href$='md']");
+
+          if(a){
+
+            let href = '#' + a.getAttribute('href').split('.')[0];
+            a.href = href;
+            a.text = _.startCase(a.text.split('.')[0]);
+
+            footer.appendChild(a);
+            footer.appendChild(document.createTextNode(" "));
+          }
+
+      }
+    }
+  )
+</script>
 </body>
 </html>
